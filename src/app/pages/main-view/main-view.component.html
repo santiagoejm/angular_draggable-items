@@ -13,15 +13,18 @@
     </div>
 
     <div class="board-wrapper">
-      <div class="board-columns">
+      <div class="board-columns" cdkDropListGroup>
         <div class="board-column">
           <div class="column-title">Ideas</div>
 
-          <div class="task-container">
-            <div class="task">Something I need to do</div>
-            <div class="task">Something I need to do</div>
-            <div class="task">Something I need to do</div>
-            <div class="task">Something I need to do</div>
+          <div
+            class="task-container"
+            cdkDropList
+            #todoList="cdkDropList"
+            [cdkDropListData]="todo"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div class="task" cdkDrag>Something I need to do</div>
           </div>
         </div>
 
